@@ -16,7 +16,7 @@ class Directory extends Controller{
             ['name' => "Luis" ,'lastname' => 'Ontivero' , 'phome' => 4143448714,'direction' => "Colonia Tovar"],
             ['name' => "Dolly" ,'lastname' => 'Urbina' , 'phome' => 4120375387,'direction' => "Colonia Tovar"]
         ];
-        return Response($data)->header('Access-Control-Allow-Origin','*');
+        return Response($data)->header('Access-Control-Allow-Origin','*')->header('Access-Control-Allow-Headers','*');
     }
 
     /**
