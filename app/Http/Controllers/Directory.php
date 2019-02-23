@@ -13,8 +13,8 @@ class Directory extends Controller{
      */
     public function index() {
         $data = [
-            ['name' => "Luis" ,'lastname' => 'Ontivero' , 'phome' => 4143448714,'direction' => "Colonia Tovar"],
-            ['name' => "Dolly" ,'lastname' => 'Urbina' , 'phome' => 4120375387,'direction' => "Colonia Tovar"]
+            ['rowid' => 1, 'name' => "Luis" ,'lastname' => 'Ontivero' , 'phone' => 4143448714,'direction' => "Colonia Tovar"],
+            ['rowid' => 2,'name' => "Dolly" ,'lastname' => 'Urbina' , 'phone' => 4120375387,'direction' => "Colonia Tovar"]
         ];
         return Response($data);
     }
