@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use \Illuminate\Http\Response;
+use Illuminate\Http\Response;
+use App\directory as model;
 
 class Directory extends Controller{
     /**
@@ -12,10 +13,7 @@ class Directory extends Controller{
      * @return \Illuminate\Http\Response
      */
     public function index() {
-        $data = [
-            ['rowid' => 1, 'name' => "Luis" ,'lastname' => 'Ontivero' , 'phone' => 4143448714,'direction' => "Colonia Tovar"],
-            ['rowid' => 2,'name' => "Dolly" ,'lastname' => 'Urbina' , 'phone' => 4120375387,'direction' => "Colonia Tovar"]
-        ];
+        $data = model::all();
         return Response($data);
     }
 
@@ -24,8 +22,7 @@ class Directory extends Controller{
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
+    public function create(){
         //
     }
 
@@ -35,9 +32,15 @@ class Directory extends Controller{
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        //
+    public function store(Request $request){
+        
+        $new = new model();
+        $new->name = $request->name;
+        $new->lastname = $request->lastname;
+        $new->phone = $request->phone;
+        $new->direction = $request->direction;
+        $new->save();
+
     }
 
     /**
@@ -46,8 +49,7 @@ class Directory extends Controller{
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
+    public function show($id){
         //
     }
 
@@ -57,8 +59,7 @@ class Directory extends Controller{
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
+    public function edit($id){
         //
     }
 
@@ -69,8 +70,7 @@ class Directory extends Controller{
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
+    public function update(Request $request, $id){
         //
     }
 
@@ -80,8 +80,7 @@ class Directory extends Controller{
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
+    public function destroy($id){
         //
     }
 }
