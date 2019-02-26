@@ -11,8 +11,4 @@
 |
 */
 
-Route::resource('Directory', 'Directory');
-
-Route::get('/', function(){
-    return "No Permitido";
-});
+//Route::resource('Directory', 'Directory');

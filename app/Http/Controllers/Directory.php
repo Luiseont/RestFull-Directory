@@ -17,15 +17,7 @@ class Directory extends Controller{
         return Response($data);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create(){
-        //
-    }
-
+    
     /**
      * Store a newly created resource in storage.
      *
@@ -33,14 +25,14 @@ class Directory extends Controller{
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request){
-        
-        $new = new model();
-        $new->name = $request->name;
-        $new->lastname = $request->lastname;
-        $new->phone = $request->phone;
-        $new->direction = $request->direction;
-        $new->save();
+        $data = json_decode($request->getContent(), true);
 
+        $new = new model();
+        $new->name = $data['name'];
+        $new->lastname = $data['lastname'];
+        $new->phone = $data['phone'];
+        $new->direction = $data['direction'];
+        $new->save();
     }
 
     /**
@@ -50,16 +42,6 @@ class Directory extends Controller{
      * @return \Illuminate\Http\Response
      */
     public function show($id){
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id){
         //
     }
 
